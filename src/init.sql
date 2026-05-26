@@ -12,12 +12,12 @@ CREATE TABLE departamentos (
 
 CREATE TABLE empregados (
     codigo INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    nome VARCHAR(48)
+    nome VARCHAR(128)
 );
 
 CREATE TABLE gerentes (
     codigo INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    nome VARCHAR(48)
+    nome VARCHAR(128)
 );
 
 CREATE TABLE projetos (
