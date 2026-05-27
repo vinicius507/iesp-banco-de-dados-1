@@ -3,8 +3,6 @@
 -- UNIESP Faculdades
 -- Banco de Dados I
 
-BEGIN;
-
 CREATE TABLE departamentos (
     codigo INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     nome VARCHAR(48)
@@ -35,5 +33,3 @@ CREATE TABLE empregados_projetos (
     horas_trabalhadas NUMERIC(2) DEFAULT 0,
     PRIMARY KEY (codigo_empregado, codigo_projeto)
 );
-
-COMMIT;
