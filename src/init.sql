@@ -5,22 +5,22 @@
 
 CREATE TABLE departamentos (
     codigo INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    nome VARCHAR(48)
+    nome VARCHAR(50)
 );
 
 CREATE TABLE empregados (
     codigo INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    nome VARCHAR(128)
+    nome VARCHAR(100)
 );
 
 CREATE TABLE gerentes (
     codigo INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    nome VARCHAR(128)
+    nome VARCHAR(100)
 );
 
 CREATE TABLE projetos (
     codigo INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    nome VARCHAR(48),
+    nome VARCHAR(100),
     data_inicio DATE,
     data_fim DATE,
     codigo_departamento INT REFERENCES departamentos (codigo),
