@@ -1,0 +1,38 @@
+Table empregados {
+  codigo integer [pk, increment]
+  nome varchar(100) [not null]
+}
+
+Table departamentos {
+  codigo integer [pk, increment]
+  nome varchar(50) [not null]
+}
+
+Table gerentes {
+  codigo integer [pk, increment]
+  nome varchar(100) [not null]
+}
+
+Table projetos {
+  codigo integer [pk, increment]
+  nome varchar(100) [not null]
+  data_inicio date
+  data_fim date
+  codigo_departamento integer [not null]
+  codigo_gerente integer [not null]
+}
+
+Table empregados_projetos {
+  codigo_empregado integer [not null]
+  codigo_projeto integer [not null]
+  horas_trabalhadas numeric(2) [default: 0]
+
+  Indexes {
+    (codigo_empregado, codigo_projeto) [pk]
+  }
+}
+
+Ref: departamentos.codigo < projetos.codigo_departamento
+Ref: gerentes.codigo < projetos.codigo_gerente
+Ref: empregados.codigo < empregados_projetos.codigo_empregado
+Ref: projetos.codigo < empregados_projetos.codigo_projeto
