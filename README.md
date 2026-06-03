@@ -11,11 +11,34 @@ simples, incluindo:
 - [Script de inicialização](src/init.sql)
 - Dicionário de Dados
 
-## Tema
-
-O tema escolhido para o projeto foi o
+## Situação Problema
 
 ![Tabela do Exercício](assets/exercicio.png)
+
+## Normalização
+
+A tabela proposta pode ser descrita da seguinte maneira usando a notação textual do modelo relacional:
+
+Projeto(**codigo**, nome, data_inicio, data_fim, Departamento(**codigo**, nome), Gerente(**codigo**, nome), Empregado(**codigo**, nome, horas_trabalhadas))
+
+Percebe-se a presença clara de tabelas aninhadas, violando a _1NF_ (1a forma normal), logo, é _NNF_ (não normalizado).
+Para que possamos estar de acordo com a _1NF_, precisamos extrair as tabelas aninhadas:
+
+Departamento(**codigo**, nome)
+
+Gerente(**codigo**, nome)
+
+Empregado(**codigo**, nome, horas_trabalhadas)
+
+Projeto(**codigo**, nome, data*inicio, data_fim, \_codigo_departamento*, _codigo_gerente_)
+
+Participa(_**codigo_empregado**_, _**codigo_projeto**_)
+
+## Diagramas
+
+![Modelo Conceitual](assets/er-model.jpg)
+
+![Modelo Lógico](./assets/erd.png)
 
 ## Autores
 
